@@ -4,13 +4,12 @@
   ============================================================
 */
 
-// Password required to open the site.
-// NOTE: this is a simple front-door check, not real security — anyone who
-// views the page source can find it. It keeps casual visitors out; it does
-// not protect sensitive data. Change it any time by editing the line below.
-const SITE_PASSWORD = "PASTE_YOUR_PASSWORD_HERE";
+// Client (student) passwords are no longer set here — they are generated
+// and revoked from the admin panel at admin.html, and stored (as hashes,
+// never plain text) in Firestore. See README.md for setup steps.
 
-// Firebase project settings — used to save try-out scores to the cloud.
+// Firebase project settings — used for admin login, client password
+// checks, and saving try-out scores to the cloud.
 // Get these values from: Firebase Console > Project settings > General >
 // "Your apps" > SDK setup and configuration > Config.
 // See README.md for the full step-by-step tutorial.

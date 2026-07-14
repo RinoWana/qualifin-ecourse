@@ -423,6 +423,127 @@ footer {
   margin-top: 8px;
 }
 
+/* Admin panel */
+.admin-title {
+  font-weight: 700;
+  color: var(--navy-dark);
+  margin-right: auto;
+  margin-left: 16px;
+}
+
+.admin-main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+.admin-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.admin-card h2 {
+  margin: 0 0 14px;
+  font-size: 16px;
+  color: var(--navy-dark);
+}
+
+.admin-form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.admin-form-row input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ddd8f5;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.admin-form-row button {
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.admin-form-row button:hover {
+  background: var(--navy-dark);
+}
+
+.generated-password-box {
+  margin-top: 14px;
+  background: var(--lavender-light);
+  border: 1px solid var(--lavender);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.generated-password-box code {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy-dark);
+}
+
+.warning-text {
+  color: var(--danger);
+  font-size: 12px;
+  margin: 6px 0 0;
+}
+
+.muted-text {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.password-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eeedf7;
+}
+
+.password-row:last-child {
+  border-bottom: none;
+}
+
+.password-label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.password-meta {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.delete-password-btn {
+  background: #fbe9e8;
+  color: var(--danger);
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.delete-password-btn:hover {
+  background: var(--danger);
+  color: var(--white);
+}
+
 @media (max-width: 480px) {
   .header-inner {
     padding: 12px 14px;

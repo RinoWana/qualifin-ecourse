@@ -49,41 +49,51 @@ Add a block to the `quizQuestions` array in `js/data.js`:
 ## Hosting for free
 Once ready, you can drag-and-drop this whole folder onto [Netlify Drop](https://app.netlify.com/drop) or push it to a GitHub repo and enable GitHub Pages — no backend required since everything runs in the browser.
 
-## Restricting access (password) and saving try-out scores
+## Restricting access, the admin panel, and saving try-out scores
 
-The site is gated behind a shared password, and try-out submissions (name + score) are saved to a Firebase Firestore database. Both are configured in **`js/site-config.js`**.
+The site is gated behind a password. Passwords are **not** hardcoded anymore — you generate and revoke them yourself from an admin panel at `admin.html`, and they're stored (as one-way hashes, never plain text) in Firebase Firestore. Try-out submissions (name + score) are saved to Firestore too.
 
-### 1. Set the site password
-Open `js/site-config.js` and change:
-```js
-const SITE_PASSWORD = "PASTE_YOUR_PASSWORD_HERE";
-```
-to whatever password you want to share with your students. This is a simple front-door check (not encryption) — good enough to keep casual visitors out, not for protecting sensitive data.
-
-### 2. Create a Firebase project (for score storage)
+### 1. Create a Firebase project
 1. Go to [console.firebase.google.com](https://console.firebase.google.com) and sign in with your Google account.
-2. Click **Add project**, name it (e.g. `qualifin-ecourse`), and finish the setup wizard (you can disable Google Analytics for this project — not needed).
+2. Click **Add project**, name it (e.g. `qualifin-ecourse`), and finish the setup wizard (you can disable Google Analytics — not needed).
 3. In the left sidebar, click **Build → Firestore Database → Create database**. Choose a region close to Indonesia (e.g. `asia-southeast2`), and start in **production mode**.
-4. Once created, go to the **Rules** tab and replace the default rules with:
-   ```
-   rules_version = '2';
-   service cloud.firestore {
-     match /databases/{database}/documents {
-       match /tryout_submissions/{docId} {
-         allow create: if request.resource.data.name is string
-                       && request.resource.data.name.size() > 0
-                       && request.resource.data.name.size() < 200
-                       && request.resource.data.score is int
-                       && request.resource.data.total is int;
-         allow read, update, delete: if false;
-       }
-     }
-   }
-   ```
-   This lets the website submit new scores, but nobody (including other students) can read, edit, or delete submissions from the browser — only you, via the Firebase Console.
-5. Click **Publish**.
-6. In the left sidebar, click the gear icon → **Project settings → General**, scroll to **Your apps**, click the **`</>`** (web) icon to register a new web app (any nickname is fine, no need for Firebase Hosting).
-7. Firebase will show you a `firebaseConfig` object like:
+
+### 2. Set the Firestore security rules
+Go to the **Rules** tab of Firestore and replace the default rules with:
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /client_passwords/{hashId} {
+      allow get: if true;
+      allow list: if request.auth != null;
+      allow create, delete: if request.auth != null;
+      allow update: if false;
+    }
+    match /tryout_submissions/{docId} {
+      allow create: if request.resource.data.name is string
+                    && request.resource.data.name.size() > 0
+                    && request.resource.data.name.size() < 200
+                    && request.resource.data.score is int
+                    && request.resource.data.total is int;
+      allow read: if request.auth != null;
+      allow update, delete: if false;
+    }
+  }
+}
+```
+Click **Publish**. What this does:
+- `client_passwords`: anyone can check whether a *specific* password hash exists (needed for the login gate), but nobody can list all passwords or create/delete them unless logged in as admin.
+- `tryout_submissions`: anyone can submit a new score, but only the logged-in admin can read the list back; nobody can edit or delete a submission.
+
+### 3. Create your admin login
+1. In the left sidebar, click **Build → Authentication → Get started**.
+2. Under **Sign-in method**, enable **Email/Password**.
+3. Go to the **Users** tab → **Add user**. Enter the email and password you'll use to log into `admin.html`. (This is separate from the client passwords you'll generate for students.)
+
+### 4. Register a web app and get your config
+1. Click the gear icon → **Project settings → General**, scroll to **Your apps**, click the **`</>`** (web) icon to register a new web app (any nickname is fine, no need for Firebase Hosting).
+2. Firebase will show you a `firebaseConfig` object like:
    ```js
    const firebaseConfig = {
      apiKey: "AIzaSy...",
@@ -94,10 +104,13 @@ to whatever password you want to share with your students. This is a simple fron
      appId: "1:123456789:web:abcdef123456",
    };
    ```
-   Copy these values into the matching fields in `js/site-config.js`, replacing the `PASTE_...` placeholders.
+   Copy these values into `js/site-config.js`, replacing the `PASTE_...` placeholders.
 
-### 3. View submitted scores
-In the Firebase Console, go to **Firestore Database → Data**. Each try-out submission appears as a document in the `tryout_submissions` collection, with `name`, `score`, `total`, `percentage`, and `timestamp`. You can export this data (⋮ menu → Export collection) if you want it in a spreadsheet.
+### 5. Deploy, then generate client passwords
+1. Commit and push the filled-in `js/site-config.js` — GitHub Pages redeploys within a minute or two.
+2. Open `https://<your-site>/admin.html`, log in with the admin email/password from step 3.
+3. Optionally type a label (e.g. "Batch Januari 2026") and click **Generate Password**. A random password appears once — copy and share it with your students immediately, since it won't be shown again.
+4. To revoke access, find the entry in the list and click **Hapus** (Delete) — anyone using that password is locked out immediately.
 
-### 4. Deploy the change
-Once `js/site-config.js` is filled in, commit and push — GitHub Pages redeploys automatically within a minute or two.
+### 6. View submitted try-out scores
+In the Firebase Console, go to **Firestore Database → Data → `tryout_submissions`**. Each entry has `name`, `score`, `total`, `percentage`, and `timestamp`. Export via the ⋮ menu if you want it in a spreadsheet.

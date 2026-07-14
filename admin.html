@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qualifin Admin — Kelola Password</title>
+  <link rel="icon" href="assets/logo.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="admin-login" class="gate-overlay">
+    <form id="admin-login-form" class="gate-box">
+      <img src="assets/logo.svg" alt="Qualifin" class="gate-logo" />
+      <h2>Admin Login</h2>
+      <p>Masuk dengan akun admin Firebase Anda.</p>
+      <input type="email" id="admin-email" placeholder="Email admin" autocomplete="username" required />
+      <input type="password" id="admin-password-input" placeholder="Password admin" autocomplete="current-password" required />
+      <button type="submit">Masuk</button>
+      <p class="gate-error" id="admin-login-error"></p>
+    </form>
+  </div>
+
+  <div id="admin-panel" style="display:none">
+    <header>
+      <div class="header-inner">
+        <img src="assets/logo.svg" alt="Qualifin" />
+        <span class="admin-title">Admin Panel</span>
+        <button id="admin-logout" class="tab-btn">Keluar</button>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <section class="admin-card">
+        <h2>Buat Password Client Baru</h2>
+        <div class="admin-form-row">
+          <input type="text" id="new-password-label" placeholder="Label (opsional, mis. 'Batch Januari')" />
+          <button id="generate-password-btn">Generate Password</button>
+        </div>
+        <div id="generated-password-box" class="generated-password-box" style="display:none"></div>
+      </section>
+
+      <section class="admin-card">
+        <h2>Daftar Password Client</h2>
+        <div id="password-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/site-config.js"></script>
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>

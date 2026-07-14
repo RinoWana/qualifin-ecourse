@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("gate-form");
   const input = document.getElementById("gate-password");
   const error = document.getElementById("gate-error");
+  const submitBtn = form.querySelector("button[type=submit]");
 
   const unlock = () => {
     gate.style.display = "none";
@@ -15,11 +16,22 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    if (input.value === SITE_PASSWORD) {
+    error.textContent = "";
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Memeriksa...";
+
+    const result = await window.checkClientPassword(input.value);
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Masuk";
+
+    if (result.ok) {
       localStorage.setItem("qualifin_unlocked", "true");
       unlock();
+    } else if (result.reason === "not_configured") {
+      error.textContent = "Sistem belum dikonfigurasi. Hubungi admin.";
     } else {
       error.textContent = "Password salah, silakan coba lagi.";
       input.value = "";
