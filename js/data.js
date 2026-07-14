@@ -62,52 +62,52 @@ const materials = [
   {
     id: "material-1",
     title: "Slide Modul 1 - Pengantar Pasar Modal",
-    file: "materials/modul-1.pdf",
+    file: "https://drive.google.com/file/d/1VkqH3mVjjVbkziO87iLb7bciSxw86GDh/view?usp=sharing",
   },
   {
     id: "material-2",
     title: "Slide Modul 2 - Instrumen Keuangan (Reksadana)",
-    file: "materials/modul-2.pdf",
+    file: "https://drive.google.com/file/d/1uSji62H5nLxGJupyrlHghS5Ve6tCoQDz/view?usp=sharing",
   },
   {
     id: "material-3",
     title: "Slide Modul 3 - Instrumen Keuangan (Obligasi)",
-    file: "materials/modul-3.pdf",
+    file: "https://drive.google.com/file/d/1CPVPETq5j5FQOXrQpYOsZS-pLch-VdN6/view?usp=sharing",
   },
   {
     id: "material-4",
     title: "Slide Modul 4 - Instrumen Keuangan (Saham dan Analisa Fundamental)",
-    file: "materials/modul-4.pdf",
+    file: "https://drive.google.com/file/d/1ItFLMxyRT2FAnkWVVvE4f_sj0XkVQ2F0/view?usp=sharing",
   },
   {
     id: "material-5",
     title: "Slide Modul 5 - Makroekonomi",
-    file: "materials/modul-5.pdf",
+    file: "https://drive.google.com/file/d/1iGxsV7Je-fj-7FyhH-dKL6I364_FFbOR/view?usp=sharing",
   },
   {
     id: "material-6",
     title: "Slide Modul 6 - Manajemen Risiko",
-    file: "materials/modul-6.pdf",
+    file: "https://drive.google.com/file/d/1X5zFsapyb0Mg5qb2y-xZerq7hov6qyUs/view?usp=sharing",
   },
   {
     id: "material-kk1",
     title: "Slide KK1 - Menyusun Strategi Investasi",
-    file: "materials/kk1.pdf",
+    file: "https://drive.google.com/file/d/1oDpIKCeg0e0rfWR90y-4snIP4aedfLlc/view?usp=sharing",
   },
   {
     id: "material-kk2",
     title: "Slide KK2 - Melakukan Transaksi Portofolio",
-    file: "materials/kk2.pdf",
+    file: "https://drive.google.com/file/d/1zFWP2gt7KxcUBz0NSP8E5gXbCn4TpkEz/view?usp=sharing",
   },
   {
     id: "material-kk3",
     title: "Slide KK3 - Melakukan Monitoring Portofolio",
-    file: "materials/kk3.pdf",
+    file: "https://drive.google.com/file/d/1mgvSBiD3TOS5f0KD6I-IDvWIp7u9afWn/view?usp=sharing",
   },
   {
     id: "material-kk4",
     title: "Slide KK4 - Penasihat Investasi",
-    file: "materials/kk4.pdf",
+    file: "https://drive.google.com/file/d/1-oihWMLoj9g_40KXK38BSDHN9nDBLhYM/view?usp=sharing",
   },
 ];
 
