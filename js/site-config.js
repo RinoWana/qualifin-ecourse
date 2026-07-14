@@ -14,10 +14,10 @@
 // "Your apps" > SDK setup and configuration > Config.
 // See README.md for the full step-by-step tutorial.
 const firebaseConfig = {
-  apiKey: "PASTE_FIREBASE_API_KEY_HERE",
-  authDomain: "PASTE_FIREBASE_AUTH_DOMAIN_HERE",
-  projectId: "PASTE_FIREBASE_PROJECT_ID_HERE",
-  storageBucket: "PASTE_FIREBASE_STORAGE_BUCKET_HERE",
-  messagingSenderId: "PASTE_FIREBASE_SENDER_ID_HERE",
-  appId: "PASTE_FIREBASE_APP_ID_HERE",
+  apiKey: "AIzaSyCqFjBA7-0_CHw7za-FDR1XvFGgBsmeslw",
+  authDomain: "qualifin-ecourse.firebaseapp.com",
+  projectId: "qualifin-ecourse",
+  storageBucket: "qualifin-ecourse.firebasestorage.app",
+  messagingSenderId: "243081173898",
+  appId: "1:243081173898:web:cecd665a4bceff72280673",
 };
