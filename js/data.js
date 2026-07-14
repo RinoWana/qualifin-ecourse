@@ -30,32 +30,24 @@ const lessons = [
     title: "KK1: Menyusun Strategi Investasi",
     description: "Deskripsi singkat materi video ini.",
     driveFileId: "1XZ3WAtDQHwHsU9eL_q_pz286EsUX-Uiq",
-    provider: "youtube",
-    youtubeId: "Am2oSM1rY_M",
   },
   {
     id: "lesson-kk2",
     title: "KK2: Melakukan Transaksi Portofolio",
     description: "Deskripsi singkat materi video ini.",
     driveFileId: "1XVrZ0EsvppFMbiH7KBIlhiHIIGXFWBFg",
-    provider: "youtube",
-    youtubeId: "Am2oSM1rY_M",
   },
   {
     id: "lesson-kk3",
     title: "KK3: Melakukan Monitoring Portofolio",
     description: "Deskripsi singkat materi video ini.",
     driveFileId: "1bj0cJo8gQ4S6XxVU-s4FtH9C1Aw9ZEAa",
-    provider: "youtube",
-    youtubeId: "Am2oSM1rY_M",
   },
   {
     id: "lesson-kk4",
     title: "KK4: Penasihat Investasi",
     description: "Deskripsi singkat materi video ini.",
     driveFileId: "1ADWl7OXvZAgkm05-CElbojPimLn3deKF",
-    provider: "youtube",
-    youtubeId: "Am2oSM1rY_M",
   },
 ];
 
