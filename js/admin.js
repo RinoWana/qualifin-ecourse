@@ -1,6 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import {
   getAuth,
+  setPersistence,
+  browserSessionPersistence,
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
@@ -36,6 +38,7 @@ if (!isConfigured) {
     const password = document.getElementById("admin-password-input").value;
     loginError.textContent = "";
     try {
+      await setPersistence(auth, browserSessionPersistence);
       await signInWithEmailAndPassword(auth, email, password);
     } catch (err) {
       loginError.textContent = "Login gagal: email atau password salah.";
