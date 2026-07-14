@@ -117,7 +117,7 @@ if (!isConfigured) {
       row.querySelector(".delete-password-btn").addEventListener("click", async () => {
         if (!confirm("Hapus password ini? Client yang memakainya tidak akan bisa masuk lagi.")) return;
         await deleteDoc(doc(db, "client_passwords", docSnap.id));
-        loadPasswordList();
+        await signOut(auth);
       });
       listEl.appendChild(row);
     });
