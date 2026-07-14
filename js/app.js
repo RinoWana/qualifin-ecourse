@@ -48,10 +48,13 @@ function initLessons() {
 }
 
 function renderLesson(lesson, viewer) {
-  const embedUrl = `https://drive.google.com/file/d/${lesson.driveFileId}/preview`;
+  const embedUrl =
+    lesson.provider === "youtube"
+      ? `https://www.youtube.com/embed/${lesson.youtubeId}`
+      : `https://drive.google.com/file/d/${lesson.driveFileId}/preview`;
   viewer.innerHTML = `
     <div class="video-frame-wrap">
-      <iframe src="${embedUrl}" allow="autoplay" allowfullscreen></iframe>
+      <iframe src="${embedUrl}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
     <h3>${lesson.title}</h3>
     <p>${lesson.description || ""}</p>
