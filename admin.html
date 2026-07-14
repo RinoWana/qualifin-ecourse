@@ -31,6 +31,32 @@
 
     <main class="admin-main">
       <section class="admin-card">
+        <h2>Ringkasan Try Out</h2>
+        <div class="stat-grid" id="stat-grid"></div>
+        <div class="chart-card">
+          <h3 class="chart-title">Distribusi Skor</h3>
+          <div class="bar-chart" id="score-distribution-chart"></div>
+        </div>
+      </section>
+
+      <section class="admin-card">
+        <h2>Riwayat Try Out</h2>
+        <div class="table-wrap">
+          <table class="submissions-table">
+            <thead>
+              <tr>
+                <th>Nama</th>
+                <th>Skor</th>
+                <th>Persentase</th>
+                <th>Tanggal</th>
+              </tr>
+            </thead>
+            <tbody id="submissions-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="admin-card">
         <h2>Buat Password Client Baru</h2>
         <div class="admin-form-row">
           <input type="text" id="new-password-label" placeholder="Label (opsional, mis. 'Batch Januari')" />

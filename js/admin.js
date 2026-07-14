@@ -14,6 +14,8 @@ import {
   setDoc,
   deleteDoc,
   getDocs,
+  query,
+  orderBy,
   serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
@@ -52,6 +54,7 @@ if (!isConfigured) {
       loginBox.style.display = "none";
       panel.style.display = "block";
       loadPasswordList();
+      loadAnalytics();
     } else {
       loginBox.style.display = "flex";
       panel.style.display = "none";
@@ -121,5 +124,99 @@ if (!isConfigured) {
       });
       listEl.appendChild(row);
     });
+  }
+
+  function formatStatValue(value) {
+    if (value >= 1000) return (value / 1000).toFixed(1).replace(/\.0$/, "") + "K";
+    return String(value);
+  }
+
+  function renderStatGrid(stats) {
+    const grid = document.getElementById("stat-grid");
+    grid.innerHTML = stats
+      .map(
+        (s) => `
+        <div class="stat-tile">
+          <div class="stat-value">${s.value}</div>
+          <div class="stat-label">${s.label}</div>
+        </div>`
+      )
+      .join("");
+  }
+
+  function renderScoreDistribution(submissions) {
+    const chart = document.getElementById("score-distribution-chart");
+    const buckets = [
+      { label: "0-20%", min: 0, max: 20, count: 0 },
+      { label: "21-40%", min: 21, max: 40, count: 0 },
+      { label: "41-60%", min: 41, max: 60, count: 0 },
+      { label: "61-80%", min: 61, max: 80, count: 0 },
+      { label: "81-100%", min: 81, max: 100, count: 0 },
+    ];
+
+    submissions.forEach((s) => {
+      const bucket = buckets.find((b) => s.percentage >= b.min && s.percentage <= b.max);
+      if (bucket) bucket.count++;
+    });
+
+    const maxCount = Math.max(1, ...buckets.map((b) => b.count));
+
+    chart.innerHTML = buckets
+      .map((b) => {
+        const heightPct = Math.max(2, Math.round((b.count / maxCount) * 100));
+        return `
+          <div class="bar-col">
+            <div class="bar-track">
+              <div class="bar-fill" style="height:${heightPct}%">
+                <span class="bar-value">${b.count}</span>
+              </div>
+            </div>
+            <div class="bar-label">${b.label}</div>
+          </div>`;
+      })
+      .join("");
+  }
+
+  function renderSubmissionsTable(submissions) {
+    const tbody = document.getElementById("submissions-tbody");
+    if (!submissions.length) {
+      tbody.innerHTML = `<tr><td colspan="4" class="muted-text">Belum ada try out yang diselesaikan.</td></tr>`;
+      return;
+    }
+    tbody.innerHTML = submissions
+      .map((s) => {
+        const dateStr = s.timestamp?.toDate ? s.timestamp.toDate().toLocaleString("id-ID") : "-";
+        return `
+          <tr>
+            <td>${s.name}</td>
+            <td class="num-cell">${s.score}/${s.total}</td>
+            <td class="num-cell">${s.percentage}%</td>
+            <td>${dateStr}</td>
+          </tr>`;
+      })
+      .join("");
+  }
+
+  async function loadAnalytics() {
+    const [submissionsSnap, passwordsSnap] = await Promise.all([
+      getDocs(query(collection(db, "tryout_submissions"), orderBy("timestamp", "desc"))),
+      getDocs(collection(db, "client_passwords")),
+    ]);
+
+    const submissions = submissionsSnap.docs.map((d) => d.data());
+    const total = submissions.length;
+    const avgPercentage = total
+      ? Math.round(submissions.reduce((sum, s) => sum + s.percentage, 0) / total)
+      : 0;
+    const highest = total ? Math.max(...submissions.map((s) => s.percentage)) : 0;
+
+    renderStatGrid([
+      { label: "Total Peserta", value: formatStatValue(total) },
+      { label: "Rata-rata Skor", value: `${avgPercentage}%` },
+      { label: "Skor Tertinggi", value: `${highest}%` },
+      { label: "Password Aktif", value: formatStatValue(passwordsSnap.size) },
+    ]);
+    renderScoreDistribution(submissions);
+    renderSubmissionsTable(submissions);
   }
 }
