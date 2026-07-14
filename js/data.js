@@ -26,42 +26,6 @@ const courseInfo = {
 */
 const lessons = [
   {
-    id: "lesson-1",
-    title: "Modul 1: Pengantar Pasar Modal",
-    description: "Deskripsi singkat materi video ini.",
-    driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
-  },
-  {
-    id: "lesson-2",
-    title: "Modul 2: Instrumen Keuangan (Reksadana)",
-    description: "Deskripsi singkat materi video ini.",
-    driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
-  },
-  {
-    id: "lesson-3",
-    title: "Modul 3: Instrumen Keuangan (Obligasi)",
-    description: "Deskripsi singkat materi video ini.",
-    driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
-  },
-  {
-    id: "lesson-4",
-    title: "Modul 4: Instrumen Keuangan (Saham dan Analisa Fundamental)",
-    description: "Deskripsi singkat materi video ini.",
-    driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
-  },
-  {
-    id: "lesson-5",
-    title: "Modul 5: Makroekonomi",
-    description: "Deskripsi singkat materi video ini.",
-    driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
-  },
-  {
-    id: "lesson-6",
-    title: "Modul 6: Manajemen Risiko",
-    description: "Deskripsi singkat materi video ini.",
-    driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
-  },
-  {
     id: "lesson-kk1",
     title: "KK1: Menyusun Strategi Investasi",
     description: "Deskripsi singkat materi video ini.",
