@@ -61,6 +61,30 @@ const lessons = [
     description: "Deskripsi singkat materi video ini.",
     driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
   },
+  {
+    id: "lesson-kk1",
+    title: "KK1: Menyusun Strategi Investasi",
+    description: "Deskripsi singkat materi video ini.",
+    driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
+  },
+  {
+    id: "lesson-kk2",
+    title: "KK2: Melakukan Transaksi Portofolio",
+    description: "Deskripsi singkat materi video ini.",
+    driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
+  },
+  {
+    id: "lesson-kk3",
+    title: "KK3: Melakukan Monitoring Portofolio",
+    description: "Deskripsi singkat materi video ini.",
+    driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
+  },
+  {
+    id: "lesson-kk4",
+    title: "KK4: Penasihat Investasi",
+    description: "Deskripsi singkat materi video ini.",
+    driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
+  },
 ];
 
 /*
@@ -100,6 +124,26 @@ const materials = [
     id: "material-6",
     title: "Slide Modul 6 - Manajemen Risiko",
     file: "materials/modul-6.pdf",
+  },
+  {
+    id: "material-kk1",
+    title: "Slide KK1 - Menyusun Strategi Investasi",
+    file: "materials/kk1.pdf",
+  },
+  {
+    id: "material-kk2",
+    title: "Slide KK2 - Melakukan Transaksi Portofolio",
+    file: "materials/kk2.pdf",
+  },
+  {
+    id: "material-kk3",
+    title: "Slide KK3 - Melakukan Monitoring Portofolio",
+    file: "materials/kk3.pdf",
+  },
+  {
+    id: "material-kk4",
+    title: "Slide KK4 - Penasihat Investasi",
+    file: "materials/kk4.pdf",
   },
 ];
 
