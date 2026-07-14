@@ -324,6 +324,105 @@ footer {
   padding: 20px;
 }
 
+/* Password gate */
+.gate-overlay {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  padding: 20px;
+}
+
+.gate-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px 28px;
+  max-width: 340px;
+  width: 100%;
+  text-align: center;
+}
+
+.gate-logo {
+  height: 32px;
+  margin-bottom: 16px;
+}
+
+.gate-box h2 {
+  margin: 0 0 8px;
+  color: var(--navy-dark);
+  font-size: 20px;
+}
+
+.gate-box p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 18px;
+}
+
+.gate-box input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd8f5;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.gate-box button {
+  width: 100%;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.gate-box button:hover {
+  background: var(--navy-dark);
+}
+
+.gate-error {
+  color: var(--danger);
+  font-size: 13px;
+  min-height: 16px;
+  margin: 10px 0 0;
+}
+
+/* Quiz identity field */
+.quiz-identity {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px 18px;
+  margin-bottom: 16px;
+}
+
+.quiz-identity label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.quiz-identity input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd8f5;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.save-status {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
 @media (max-width: 480px) {
   .header-inner {
     padding: 12px 14px;

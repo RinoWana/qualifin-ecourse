@@ -8,47 +8,67 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header>
-    <div class="header-inner">
-      <img src="assets/logo.svg" alt="Qualifin" />
-      <nav>
-        <button class="tab-btn active" data-target="panel-lessons">Video Pembelajaran</button>
-        <button class="tab-btn" data-target="panel-materials">Materi (PDF)</button>
-        <button class="tab-btn" data-target="panel-quiz">Try Out</button>
-      </nav>
-    </div>
-  </header>
-
-  <div class="hero">
-    <h1 id="course-title"></h1>
-    <p class="subtitle" id="course-subtitle"></p>
-    <p class="description" id="course-description"></p>
+  <div id="password-gate" class="gate-overlay">
+    <form id="gate-form" class="gate-box">
+      <img src="assets/logo.svg" alt="Qualifin" class="gate-logo" />
+      <h2>Akses Terbatas</h2>
+      <p>Masukkan password untuk membuka E-Course WMI.</p>
+      <input type="password" id="gate-password" placeholder="Password" autocomplete="off" required />
+      <button type="submit">Masuk</button>
+      <p class="gate-error" id="gate-error"></p>
+    </form>
   </div>
 
-  <main>
-    <section id="panel-lessons" class="panel active">
-      <div class="lessons-layout">
-        <div class="lesson-list" id="lesson-list"></div>
-        <div class="lesson-viewer" id="lesson-viewer"></div>
+  <div id="app" style="display:none">
+    <header>
+      <div class="header-inner">
+        <img src="assets/logo.svg" alt="Qualifin" />
+        <nav>
+          <button class="tab-btn active" data-target="panel-lessons">Video Pembelajaran</button>
+          <button class="tab-btn" data-target="panel-materials">Materi (PDF)</button>
+          <button class="tab-btn" data-target="panel-quiz">Try Out</button>
+        </nav>
       </div>
-    </section>
+    </header>
 
-    <section id="panel-materials" class="panel">
-      <div id="materials-list"></div>
-    </section>
+    <div class="hero">
+      <h1 id="course-title"></h1>
+      <p class="subtitle" id="course-subtitle"></p>
+      <p class="description" id="course-description"></p>
+    </div>
 
-    <section id="panel-quiz" class="panel">
-      <div id="quiz-result" class="quiz-result" style="display:none"></div>
-      <form id="quiz-form"></form>
-      <div class="quiz-actions">
-        <button type="button" id="submit-quiz">Submit Try Out</button>
-      </div>
-    </section>
-  </main>
+    <main>
+      <section id="panel-lessons" class="panel active">
+        <div class="lessons-layout">
+          <div class="lesson-list" id="lesson-list"></div>
+          <div class="lesson-viewer" id="lesson-viewer"></div>
+        </div>
+      </section>
 
-  <footer>Qualifin E-Course &mdash; WMI Certification Prep</footer>
+      <section id="panel-materials" class="panel">
+        <div id="materials-list"></div>
+      </section>
 
+      <section id="panel-quiz" class="panel">
+        <div class="quiz-identity" id="quiz-identity">
+          <label for="quiz-name">Nama Lengkap</label>
+          <input type="text" id="quiz-name" placeholder="Masukkan nama lengkap Anda" required />
+        </div>
+        <div id="quiz-result" class="quiz-result" style="display:none"></div>
+        <form id="quiz-form"></form>
+        <div class="quiz-actions">
+          <button type="button" id="submit-quiz">Submit Try Out</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>Qualifin E-Course &mdash; WMI Certification Prep</footer>
+  </div>
+
+  <script src="js/site-config.js"></script>
   <script src="js/data.js"></script>
+  <script src="js/gate.js"></script>
+  <script type="module" src="js/firestore.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

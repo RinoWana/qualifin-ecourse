@@ -105,7 +105,16 @@ function initQuiz() {
     form.appendChild(block);
   });
 
-  document.getElementById("submit-quiz").addEventListener("click", () => {
+  const nameInput = document.getElementById("quiz-name");
+
+  document.getElementById("submit-quiz").addEventListener("click", async () => {
+    const name = nameInput.value.trim();
+    if (!name) {
+      nameInput.focus();
+      nameInput.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+
     let correctCount = 0;
 
     quizQuestions.forEach((q, qIndex) => {
@@ -137,7 +146,18 @@ function initQuiz() {
     resultBox.innerHTML = `
       <div class="score">${correctCount} / ${total}</div>
       <div>Skor: ${percentage}%</div>
+      <div class="save-status" id="save-status">Menyimpan skor...</div>
     `;
     resultBox.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    const saveStatus = document.getElementById("save-status");
+    if (typeof window.saveQuizResult === "function") {
+      const result = await window.saveQuizResult({ name, score: correctCount, total, percentage });
+      saveStatus.textContent = result.saved
+        ? "Skor berhasil disimpan."
+        : "Skor belum tersimpan ke server (konfigurasi belum lengkap).";
+    } else {
+      saveStatus.textContent = "Skor belum tersimpan ke server (konfigurasi belum lengkap).";
+    }
   });
 }
