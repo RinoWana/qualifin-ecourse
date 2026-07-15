@@ -203,6 +203,25 @@ main {
   display: block;
 }
 
+.kk-intro-item {
+  padding: 12px 16px 12px 28px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--navy);
+  border-top: 1px solid #eeedf7;
+}
+
+.kk-intro-item:hover {
+  background: var(--lavender-light);
+}
+
+.kk-intro-item.active {
+  background: var(--navy);
+  color: var(--white);
+}
+
 .uk-group {
   border-top: 1px solid #eeedf7;
 }

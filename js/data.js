@@ -45,6 +45,12 @@ const kkModules = [
   {
     id: "kk1",
     title: "KK1 – Menyusun Strategi Investasi",
+    intro: {
+      id: "kk1-intro",
+      title: "Pengantar KK1: Menyusun Strategi Investasi",
+      description: "Video pengantar sebelum masuk ke Unit Kompetensi KK1.",
+      driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
+    },
     units: [
       {
         id: "kk1-uk1",
@@ -87,6 +93,12 @@ const kkModules = [
   {
     id: "kk2",
     title: "KK2 – Melakukan Transaksi Portofolio",
+    intro: {
+      id: "kk2-intro",
+      title: "Pengantar KK2: Melakukan Transaksi Portofolio",
+      description: "Video pengantar sebelum masuk ke Unit Kompetensi KK2.",
+      driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
+    },
     units: [
       {
         id: "kk2-uk1",
@@ -111,6 +123,12 @@ const kkModules = [
   {
     id: "kk3",
     title: "KK3 – Monitoring Portofolio",
+    intro: {
+      id: "kk3-intro",
+      title: "Pengantar KK3: Monitoring Portofolio",
+      description: "Video pengantar sebelum masuk ke Unit Kompetensi KK3.",
+      driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
+    },
     units: [
       {
         id: "kk3-uk1",
@@ -136,6 +154,12 @@ const kkModules = [
   {
     id: "kk4",
     title: "KK4 – Penasihat Investasi",
+    intro: {
+      id: "kk4-intro",
+      title: "Pengantar KK4: Penasihat Investasi",
+      description: "Video pengantar sebelum masuk ke Unit Kompetensi KK4.",
+      driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
+    },
     units: [
       {
         id: "kk4-uk1",

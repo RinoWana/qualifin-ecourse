@@ -54,7 +54,7 @@ function initLessonsPanel() {
   list.innerHTML = "";
 
   const selectLeaf = (leafEl, item) => {
-    list.querySelectorAll(".lesson-item, .element-item").forEach((el) => el.classList.remove("active"));
+    list.querySelectorAll(".lesson-item, .kk-intro-item, .element-item").forEach((el) => el.classList.remove("active"));
     leafEl.classList.add("active");
     renderLesson(item, viewer);
   };
@@ -79,6 +79,14 @@ function initLessonsPanel() {
 
     const kkBody = document.createElement("div");
     kkBody.className = "kk-body";
+
+    if (kk.intro) {
+      const introItem = document.createElement("div");
+      introItem.className = "kk-intro-item";
+      introItem.textContent = kk.intro.title;
+      introItem.addEventListener("click", () => selectLeaf(introItem, kk.intro));
+      kkBody.appendChild(introItem);
+    }
 
     kk.units.forEach((unit) => {
       const ukGroup = document.createElement("div");
