@@ -58,6 +58,39 @@ const lessons = [
 ];
 
 /*
+  PANDUAN PENGERJAAN BUKTI KOMPETENSI KERJA (BKK) - PENGELOLAAN PORTOFOLIO
+  --------------------------------------------------------------------------
+  Video panduan cara mengerjakan Bukti Kompetensi Kerja untuk masing-masing
+  kompetensi. Format link sama seperti VIDEO LESSONS di atas.
+*/
+const bkkGuides = [
+  {
+    id: "bkk-kk1",
+    title: "KK1: Menyusun Strategi Investasi",
+    description: "Panduan pengerjaan Bukti Kompetensi Kerja untuk KK1.",
+    driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
+  },
+  {
+    id: "bkk-kk2",
+    title: "KK2: Melakukan Transaksi Portofolio",
+    description: "Panduan pengerjaan Bukti Kompetensi Kerja untuk KK2.",
+    driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
+  },
+  {
+    id: "bkk-kk3",
+    title: "KK3: Melakukan Monitoring Portofolio",
+    description: "Panduan pengerjaan Bukti Kompetensi Kerja untuk KK3.",
+    driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
+  },
+  {
+    id: "bkk-kk4",
+    title: "KK4: Penasihat Investasi",
+    description: "Panduan pengerjaan Bukti Kompetensi Kerja untuk KK4.",
+    driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
+  },
+];
+
+/*
   STUDY MATERIALS (PDF)
   ----------------------
   1. Export your PPT as PDF.

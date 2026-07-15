@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("course-description").textContent = courseInfo.description;
 
   initTabs();
-  initLessons();
+  initVideoSection(lessons, "lesson-list", "lesson-viewer");
+  initVideoSection(bkkGuides, "bkk-list", "bkk-viewer");
   initMaterials();
   initQuiz();
 });
@@ -23,28 +24,28 @@ function initTabs() {
   });
 }
 
-function initLessons() {
-  const list = document.getElementById("lesson-list");
-  const viewer = document.getElementById("lesson-viewer");
+function initVideoSection(items, listElId, viewerElId) {
+  const list = document.getElementById(listElId);
+  const viewer = document.getElementById(viewerElId);
 
-  if (!lessons.length) {
+  if (!items.length) {
     list.innerHTML = "<p style='padding:16px;color:var(--muted)'>Belum ada video.</p>";
     return;
   }
 
-  lessons.forEach((lesson, index) => {
+  items.forEach((lesson, index) => {
     const item = document.createElement("div");
     item.className = "lesson-item" + (index === 0 ? " active" : "");
     item.textContent = `${index + 1}. ${lesson.title}`;
     item.addEventListener("click", () => {
-      document.querySelectorAll(".lesson-item").forEach((el) => el.classList.remove("active"));
+      list.querySelectorAll(".lesson-item").forEach((el) => el.classList.remove("active"));
       item.classList.add("active");
       renderLesson(lesson, viewer);
     });
     list.appendChild(item);
   });
 
-  renderLesson(lessons[0], viewer);
+  renderLesson(items[0], viewer);
 }
 
 function renderLesson(lesson, viewer) {
