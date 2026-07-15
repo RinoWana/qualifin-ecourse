@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("course-description").textContent = courseInfo.description;
 
   initTabs();
-  initVideoSection(lessons, "lesson-list", "lesson-viewer");
+  initLessonsPanel();
   initVideoSection(bkkGuides, "bkk-list", "bkk-viewer");
   initMaterials();
   initQuiz();
@@ -46,6 +46,74 @@ function initVideoSection(items, listElId, viewerElId) {
   });
 
   renderLesson(items[0], viewer);
+}
+
+function initLessonsPanel() {
+  const list = document.getElementById("lesson-list");
+  const viewer = document.getElementById("lesson-viewer");
+  list.innerHTML = "";
+
+  const selectLeaf = (leafEl, item) => {
+    list.querySelectorAll(".lesson-item, .element-item").forEach((el) => el.classList.remove("active"));
+    leafEl.classList.add("active");
+    renderLesson(item, viewer);
+  };
+
+  lessons.forEach((lesson, index) => {
+    const item = document.createElement("div");
+    item.className = "lesson-item" + (index === 0 ? " active" : "");
+    item.textContent = lesson.title;
+    item.addEventListener("click", () => selectLeaf(item, lesson));
+    list.appendChild(item);
+  });
+
+  kkModules.forEach((kk) => {
+    const kkGroup = document.createElement("div");
+    kkGroup.className = "kk-group";
+
+    const kkHeader = document.createElement("div");
+    kkHeader.className = "kk-header";
+    kkHeader.innerHTML = `<span class="chevron">&#9656;</span> ${kk.title}`;
+    kkHeader.addEventListener("click", () => kkGroup.classList.toggle("expanded"));
+    kkGroup.appendChild(kkHeader);
+
+    const kkBody = document.createElement("div");
+    kkBody.className = "kk-body";
+
+    kk.units.forEach((unit) => {
+      const ukGroup = document.createElement("div");
+      ukGroup.className = "uk-group";
+
+      const ukHeader = document.createElement("div");
+      ukHeader.className = "uk-header";
+      ukHeader.innerHTML = `<span class="chevron">&#9656;</span> ${unit.title}`;
+      ukHeader.addEventListener("click", () => ukGroup.classList.toggle("expanded"));
+      ukGroup.appendChild(ukHeader);
+
+      const ukBody = document.createElement("div");
+      ukBody.className = "uk-body";
+
+      unit.elements.forEach((element) => {
+        const elItem = document.createElement("div");
+        elItem.className = "element-item";
+        elItem.textContent = element.title;
+        elItem.addEventListener("click", () => selectLeaf(elItem, element));
+        ukBody.appendChild(elItem);
+      });
+
+      ukGroup.appendChild(ukBody);
+      kkBody.appendChild(ukGroup);
+    });
+
+    kkGroup.appendChild(kkBody);
+    list.appendChild(kkGroup);
+  });
+
+  if (lessons.length) {
+    renderLesson(lessons[0], viewer);
+  } else if (kkModules.length && kkModules[0].units.length && kkModules[0].units[0].elements.length) {
+    renderLesson(kkModules[0].units[0].elements[0], viewer);
+  }
 }
 
 function renderLesson(lesson, viewer) {

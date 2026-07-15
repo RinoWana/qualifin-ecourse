@@ -31,29 +31,122 @@ const lessons = [
     description: "Video pengantar awal sebelum memulai modul KK1-KK4.",
     driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
   },
+];
+
+/*
+  KK1-KK4 MODULES (3-level structure)
+  ------------------------------------
+  KK (Kompetensi Kerja) > Unit Kompetensi > Elemen Kompetensi.
+  Each Elemen Kompetensi is one video — set its `driveFileId` the same way
+  as above. Titles/structure below match the official unit & elemen
+  kompetensi breakdown.
+*/
+const kkModules = [
   {
-    id: "lesson-kk1",
-    title: "KK1: Menyusun Strategi Investasi",
-    description: "Deskripsi singkat materi video ini.",
-    driveFileId: "1XZ3WAtDQHwHsU9eL_q_pz286EsUX-Uiq",
+    id: "kk1",
+    title: "KK1 – Menyusun Strategi Investasi",
+    units: [
+      {
+        id: "kk1-uk1",
+        title: "Unit Kompetensi 1: Menyusun Strategi Pengelolaan Investasi (K.66BPM00.027.1)",
+        elements: [
+          { id: "kk1-uk1-e1", title: "Menganalisis Strategi dan Kebijakan Investasi", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk1-uk1-e2", title: "Menentukan Aset Portofolio", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk1-uk1-e3", title: "Menentukan Bobot Aset Portofolio", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk1-uk1-e4", title: "Mengidentifikasi Risiko Portofolio", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+        ],
+      },
+      {
+        id: "kk1-uk2",
+        title: "Unit Kompetensi 2: Melakukan Analisis Peluang dan Risiko Investasi (K.66BPM00.026.1)",
+        elements: [
+          { id: "kk1-uk2-e1", title: "Meninjau Peluang dan Risiko Investasi", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk1-uk2-e2", title: "Melakukan Analisis Peluang dan Risiko Investasi", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk1-uk2-e3", title: "Membuat Laporan Analisis Peluang dan Risiko Investasi", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+        ],
+      },
+      {
+        id: "kk1-uk3",
+        title: "Unit Kompetensi 3: Melakukan Analisis Peluang dan Risiko Investasi Sesuai dengan Prinsip Syariah (K.66BPM00.034.1)",
+        elements: [
+          { id: "kk1-uk3-e1", title: "Meninjau Peluang dan Risiko Investasi Sesuai dengan Prinsip Syariah", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk1-uk3-e2", title: "Melakukan Analisis Peluang dan Risiko Investasi Sesuai dengan Prinsip Syariah", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk1-uk3-e3", title: "Membuat Laporan Analisis Peluang dan Risiko Investasi Sesuai dengan Prinsip Syariah", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+        ],
+      },
+      {
+        id: "kk1-uk4",
+        title: "Unit Kompetensi 4: Membuat Kertas Kerja Pengelolaan Portofolio (K.66BPM00.028.1)",
+        elements: [
+          { id: "kk1-uk4-e1", title: "Menyusun Kertas Kerja Pengelolaan Portofolio", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk1-uk4-e2", title: "Mendokumentasikan Kertas Kerja Pengelolaan Portofolio", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+        ],
+      },
+    ],
   },
   {
-    id: "lesson-kk2",
-    title: "KK2: Melakukan Transaksi Portofolio",
-    description: "Deskripsi singkat materi video ini.",
-    driveFileId: "1XVrZ0EsvppFMbiH7KBIlhiHIIGXFWBFg",
+    id: "kk2",
+    title: "KK2 – Melakukan Transaksi Portofolio",
+    units: [
+      {
+        id: "kk2-uk1",
+        title: "Unit Kompetensi 1: Melakukan Transaksi Aset Dasar Portofolio (K.66BPM00.029.1)",
+        elements: [
+          { id: "kk2-uk1-e1", title: "Memilih Mitra Transaksi Aset Dasar Portofolio", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk2-uk1-e2", title: "Membuat Mekanisme Transaksi", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk2-uk1-e3", title: "Mengalokasikan Transaksi Aset Dasar", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk2-uk1-e4", title: "Membuat Laporan Transaksi Efek", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+        ],
+      },
+      {
+        id: "kk2-uk2",
+        title: "Unit Kompetensi 2: Melakukan Penyelesaian Transaksi Efek Pada Pengelolaan Investasi (K.66BPM00.036.1)",
+        elements: [
+          { id: "kk2-uk2-e1", title: "Melakukan Rekonsiliasi Atas Data Transaksi Efek", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk2-uk2-e2", title: "Menerima Laporan Pengecekan Silang Atas Data Transaksi Efek", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+        ],
+      },
+    ],
   },
   {
-    id: "lesson-kk3",
-    title: "KK3: Melakukan Monitoring Portofolio",
-    description: "Deskripsi singkat materi video ini.",
-    driveFileId: "1bj0cJo8gQ4S6XxVU-s4FtH9C1Aw9ZEAa",
+    id: "kk3",
+    title: "KK3 – Monitoring Portofolio",
+    units: [
+      {
+        id: "kk3-uk1",
+        title: "Unit Kompetensi 1: Melakukan Monitoring Kinerja Portofolio (K.66BPM00.030.1)",
+        elements: [
+          { id: "kk3-uk1-e1", title: "Menentukan Nilai Pasar Wajar Efek Dalam Portofolio", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk3-uk1-e2", title: "Membuat Perbandingan Kinerja Portofolio Dengan Tolok Ukur", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk3-uk1-e3", title: "Melakukan Tindakan Korektif Portofolio", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk3-uk1-e4", title: "Membuat Laporan Kinerja Portofolio", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+        ],
+      },
+      {
+        id: "kk3-uk2",
+        title: "Unit Kompetensi 2: Melakukan Pengelolaan Portofolio Investasi Sesuai Dengan Prinsip Syariah (K.66BPM00.035.1)",
+        elements: [
+          { id: "kk3-uk2-e1", title: "Meninjau Portofolio Investasi Sesuai dengan Prinsip Syariah", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk3-uk2-e2", title: "Menentukan Aset dan Penyesuaian Portofolio Investasi Syariah", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk3-uk2-e3", title: "Purifikasi Portofolio Investasi Syariah (Mengkomunikasikan rekomendasi mekanisme purifikasi kepada DPS untuk mendapatkan persetujuan)", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+        ],
+      },
+    ],
   },
   {
-    id: "lesson-kk4",
-    title: "KK4: Penasihat Investasi",
-    description: "Deskripsi singkat materi video ini.",
-    driveFileId: "1ADWl7OXvZAgkm05-CElbojPimLn3deKF",
+    id: "kk4",
+    title: "KK4 – Penasihat Investasi",
+    units: [
+      {
+        id: "kk4-uk1",
+        title: "Unit Kompetensi 1: Memberikan Jasa Penasihat Investasi Kepada Nasabah (K.66BPM00.031.1)",
+        elements: [
+          { id: "kk4-uk1-e1", title: "Mengidentifikasi Kebutuhan Nasabah", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk4-uk1-e2", title: "Rekomendasi Alokasi Aset", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+          { id: "kk4-uk1-e3", title: "Melakukan Evaluasi Atas Kesesuaian Portofolio", driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE" },
+        ],
+      },
+    ],
   },
 ];
 
