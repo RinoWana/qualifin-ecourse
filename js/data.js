@@ -26,6 +26,12 @@ const courseInfo = {
 */
 const lessons = [
   {
+    id: "lesson-pengantar",
+    title: "Pengantar E-Course WMI",
+    description: "Video pengantar awal sebelum memulai modul KK1-KK4.",
+    driveFileId: "PASTE_GOOGLE_DRIVE_FILE_ID_HERE",
+  },
+  {
     id: "lesson-kk1",
     title: "KK1: Menyusun Strategi Investasi",
     description: "Deskripsi singkat materi video ini.",
