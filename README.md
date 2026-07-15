@@ -11,7 +11,9 @@ Everything you edit lives in **`js/data.js`**. Open it in any text editor.
 2. Right-click the file → Share → set to "Anyone with the link" (Viewer).
 3. Copy the link. It looks like:
    `https://drive.google.com/file/d/1AbCDEfGhIjK/view?usp=sharing`
-4. Copy just the ID part (`1AbCDEfGhIjK`) into a new lesson block in `js/data.js`:
+4. Copy just the ID part (`1AbCDEfGhIjK`) into the right spot in `js/data.js`, depending on which section it belongs to:
+
+   **Intro videos** (top-level, e.g. "Pengantar E-Course WMI") go in the `lessons` array:
    ```js
    {
      id: "lesson-3",
@@ -20,6 +22,14 @@ Everything you edit lives in **`js/data.js`**. Open it in any text editor.
      driveFileId: "1AbCDEfGhIjK",
    }
    ```
+
+   **KK1-KK4 videos** live in the `kkModules` array, nested three levels deep: KK → Unit Kompetensi → Elemen Kompetensi. Find the right KK block, then the right Unit Kompetensi inside it, then set `driveFileId` on the matching element:
+   ```js
+   { id: "kk1-uk1-e1", title: "Menganalisis Strategi dan Kebijakan Investasi", driveFileId: "1AbCDEfGhIjK" }
+   ```
+   Each Elemen Kompetensi is its own video — there are 28 across KK1-4, so search the file for the element's title to find its block quickly.
+
+   **Panduan BKK videos** live in the separate `bkkGuides` array, same flat format as intro videos.
 
 ### 2. Add a study material (PDF)
 1. Export your PPT as PDF (PowerPoint → File → Export → Create PDF).
